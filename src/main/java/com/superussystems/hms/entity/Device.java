@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Device_master")
+@Table(name = "device_master")
 public class Device {
 
 	@Id
@@ -29,6 +29,7 @@ public class Device {
 	private LocalDateTime createdOn;
 	private String createdBy;
 	private String status;
+	private char is_Deleted;
 	private String deviceIp;
 	private String RFUI1;
 	private String RFUI2;

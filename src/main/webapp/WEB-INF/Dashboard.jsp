@@ -14,7 +14,7 @@
     <table  border="3px">
         <thead>
             <tr>
-                <th>devices Name</th>
+                <th>Devices Name</th>
                 <th>Mac Address</th>
                 <th>Last Image</th>
                 <th>Actions</th>

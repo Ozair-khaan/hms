@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.superussystems.hms.entity.Device;
 import com.superussystems.hms.service.DeviceService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Controller
-@RequestMapping("/hms")
+@RequestMapping("/device")
+@Slf4j
 public class DeviceController {
 
 	@Autowired
@@ -22,12 +25,14 @@ public class DeviceController {
 
 	@PostMapping("/addDevice")
 	public Device saveDevice(@RequestBody Device device) {
+		log.info("In adding devices into the database");
 		return deviceService.addDevice(device);
 	}
 
 	// get all device
 	@GetMapping("/getAllDevice")
 	public List<Device> fetchDevices() {
+		log.info("In fetching all devices from backend");
 		return deviceService.getAllDevices();
 	}
 
@@ -35,8 +40,7 @@ public class DeviceController {
 	public String dashboard(Model model) {
 		List<Device> devices = deviceService.getAllDevicesInfo();
 		model.addAttribute("devices", devices);
-		System.out.println("Data in model : "+model);
-		System.out.println("in dashboard value fetching method....");
+		log.info("Retrieving data from db to dashboard and data in model in model is : "+model);
 		return "Dashboard";
 	}
 
