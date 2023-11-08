@@ -28,7 +28,7 @@
                 <td>${devices.status}</td>
                 <td>
                     <a href="#">View</a> |
-                    <a href="#">Edit</a> |
+                   <a href="#">Add</a> |
                     <a href="#">Delete</a>
                 </td>
             </tr>
@@ -38,13 +38,22 @@
                 <td>${devices.status}</td>
                 <td>
                     <a href="#">View</a> |
-                    <a href="#">Edit</a> |
+                    <a href="#">Add</a> |
                     <a href="#">Delete</a>
                 </td>
             </tr>
             </c:forEach>
         </tbody>
+       
     </table>
+    <br>
+     <button><a href="addDevicePage">Add Device</a></button> 
     </div>
+   <!--  <button onclick="redirectToAddDevice()'">Add</button>
+    <script type="text/javascript">
+        function redirectToAddDevice() {
+            window.location.href = "AddDevice.jsp"; // Replace with the actual URL of the dashboard JSP
+        }
+    </script> -->
 </body>
 </html>

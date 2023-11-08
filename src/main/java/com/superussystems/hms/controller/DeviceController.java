@@ -36,12 +36,19 @@ public class DeviceController {
 		return deviceService.getAllDevices();
 	}
 
-	@GetMapping("/dash")
+	@GetMapping("/getDeviceInfo")
 	public String dashboard(Model model) {
 		List<Device> devices = deviceService.getAllDevicesInfo();
 		model.addAttribute("devices", devices);
 		log.info("Retrieving data from db to dashboard and data in model in model is : "+model);
 		return "Dashboard";
 	}
+	
+	//API to redirect addDevice.jsp page
+	@GetMapping("/addDevicePage")
+    public String redirectToAddDevicePage() {
+		System.out.println("In 2nd add dev");
+        return "AddDevice";
+    }
 
 }
