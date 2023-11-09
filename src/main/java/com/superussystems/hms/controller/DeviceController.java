@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.superussystems.hms.entity.Device;
 import com.superussystems.hms.service.DeviceService;
@@ -24,6 +25,7 @@ public class DeviceController {
 	private DeviceService deviceService;
 
 	@PostMapping("/addDevice")
+	@ResponseBody
 	public Device saveDevice(@RequestBody Device device) {
 		log.info("In adding devices into the database");
 		return deviceService.addDevice(device);
@@ -40,13 +42,14 @@ public class DeviceController {
 	public String dashboard(Model model) {
 		List<Device> devices = deviceService.getAllDevicesInfo();
 		model.addAttribute("devices", devices);
-		log.info("Retrieving data from db to dashboard and data in model in model is : "+model);
+		log.info("Retrieving data from db to dashboard and data in model is : "+model);
 		return "Dashboard";
 	}
 	
 	//API to redirect addDevice.jsp page
 	@GetMapping("/addDevicePage")
     public String redirectToAddDevicePage() {
+		log.info("redirecting to add device jsp page");
 		System.out.println("In 2nd add dev");
         return "AddDevice";
     }
